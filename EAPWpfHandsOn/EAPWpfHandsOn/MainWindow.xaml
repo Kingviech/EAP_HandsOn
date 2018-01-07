@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EAPWpfHandsOn"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Amazing Download Helper" Height="350" Width="525">
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="28" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="28" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="1" Grid.Column="0" Content="Choose Download File:" />
+            <ComboBox Grid.Column="1" Grid.Row="1" MinWidth="160" Name="DownloadFile">
+                <ComboBoxItem>HugeFile.zip</ComboBoxItem>
+                <ComboBoxItem>TotallyLegal.iso</ComboBoxItem>
+                <ComboBoxItem>NiceTool.exe</ComboBoxItem>
+                <ComboBoxItem>10HR_Helene_Fischer.mp3</ComboBoxItem>
+                <ComboBoxItem>Exceptional_File.txt</ComboBoxItem>
+            </ComboBox>
+            <Button Grid.Column="2" Grid.Row="1" MinWidth="80" Margin="3" Content="Start" Name="StartDownloadButton" Click="StartDownloadButton_Click" />
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Log:"></Label>
+            <ScrollViewer Name="DebugLogScroller" BorderThickness="2" BorderBrush="Black"  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Auto" Height="auto" >
+
+                <TextBlock Name="DebugLog" />
+
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>

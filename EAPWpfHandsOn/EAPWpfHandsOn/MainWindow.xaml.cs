@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,26 @@ namespace EAPWpfHandsOn
         public MainWindow()
         {
             InitializeComponent();
+            PrintLogMessage("Welcome to Amazing Download Helper v1.0!!!");
+            PrintLogMessage("-------------------------------------------");
+            PrintLogMessage("Please select a file to start the download.");
+        }               
+
+        private void PrintLogMessage(string message)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                DebugLog.Text += message + "\n";
+                DebugLogScroller.ScrollToBottom();
+            });
         }
+
+        private void ToggleEnabledStateOfStartButton()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                StartDownloadButton.IsEnabled = !StartDownloadButton.IsEnabled;
+            });
+        }        
     }
 }
